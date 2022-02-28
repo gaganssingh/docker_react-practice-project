@@ -1,6 +1,6 @@
 ## Docker with React
 
-#### DEVELOPMENT WORKFLOW
+#### DEVELOPMENT WORKFLOW (with hot reloading enabled)
 
 This is used for when developing the react application; i.e. development mode. This config will enable hot reloading for both the react app and the react tests, esentially automating the `npm run start` and `npm run test` commands when the `docker-compose up` command is run
 
@@ -18,8 +18,9 @@ This is used for when developing the react application; i.e. development mode. T
 
 - Create the `docker-compose.yml` file and point it to use the Dockerfile.dev file
 - Run `docker-compose up`
+- The app can now be accessed at `http://localhost:3000`
 
-#### PRODUCTION DEPLOY
+#### PRODUCTION DEPLOY (hot reloading NOT enabled)
 
 This is used to run the react app that was built following the `npm run build command`
 
@@ -27,4 +28,4 @@ This is used to run the react app that was built following the `npm run build co
 - Create a `Dockerfile` with configuring for the react app builder phase and nginx startup
 - Build the image using: `docker build .` and grab the container id
 - Manually start the container using: `docker run -p 8080:80 <CONTAINER ID>`. 8080 is the <External PORT> and 80 is the default nginx <INTERNAL PORT>
-- The app can be accessed at `http://localhost:8080`
+- The app can now be accessed at `http://localhost:8080`
